@@ -1,0 +1,84 @@
+﻿@model IList<Kladr.Models.ApplicationUser>
+@{
+    ViewBag.Title = "Статистика по пользователям";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Region</th>
+                <th>Settlement</th>
+                <th>Street</th>
+                <th>House</th>
+                <th>Flat</th>
+            </tr>
+        </thead>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>
+                    @if (user.Region != null)
+                    {
+                        @user.Region
+                    }
+                    else
+                    {
+                        <p>?</p>
+                    }
+                </td>
+                <td>
+                    @if (user.Settlement != null)
+                    {
+                        @user.Settlement
+                    }
+                    else
+                    {
+                        <p>?</p>
+                    }
+                </td>
+                <td>
+                    @if (user.Street != null)
+                    {
+                        @user.Street
+                    }
+                    else
+                    {
+                        <p>?</p>
+                    }
+                </td>
+                <td>
+                    @if (user.House != null)
+                    {
+                        @user.House
+                    }
+                    else
+                    {
+                        <p>?</p>
+                    }
+                </td>
+                <td>
+                    @if (user.Flat != null)
+                    {
+                        @user.Flat
+                    }
+                    else
+                    {
+                        <p>?</p>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <p>Нет ни одного пользователя</p>
+}

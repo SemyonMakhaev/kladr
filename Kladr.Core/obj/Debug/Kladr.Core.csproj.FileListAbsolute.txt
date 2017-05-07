@@ -1,0 +1,12 @@
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\Kladr.Core.dll.config
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\Kladr.Core.dll
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\Kladr.Core.pdb
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\Domain.dll
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\EntityFramework.dll
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\EntityFramework.SqlServer.dll
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\Domain.pdb
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\EntityFramework.xml
+W:\ОПЗБД\Kladr\Kladr.Core\bin\Debug\EntityFramework.SqlServer.xml
+W:\ОПЗБД\Kladr\Kladr.Core\obj\Debug\Kladr.Core.csprojResolveAssemblyReference.cache
+W:\ОПЗБД\Kladr\Kladr.Core\obj\Debug\Kladr.Core.dll
+W:\ОПЗБД\Kladr\Kladr.Core\obj\Debug\Kladr.Core.pdb

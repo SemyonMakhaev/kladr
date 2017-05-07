@@ -1,0 +1,46 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.prompt
+{
+    visibility: hidden;
+    position: absolute;
+    box-shadow: 0 0 10px rgba(217, 217, 217, .5), 0 0 10px rgba(217, 217, 217, .5);
+    -webkit-box-shadow: 0 0 10px rgba(217, 217, 217, .5), 0 0 10px rgba(217, 217, 217, .5);
+    -moz-box-shadow: 0 0 10px rgba(217, 217, 217, .5), 0 0 10px rgba(217, 217, 217, .5);
+    z-index: 1;
+    background-color: #fff;
+    padding: 0;
+}
+
+.prompt > p
+{
+    background-color: #fff;
+}
+
+.prompt > p:hover
+{
+    background-color: #d3d3d3;
+}

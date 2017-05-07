@@ -1,0 +1,11 @@
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\Kladr.Services.dll
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\Kladr.Services.pdb
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\Domain.dll
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\Kladr.Core.dll
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\EntityFramework.dll
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\Domain.pdb
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\Kladr.Core.pdb
+W:\ОПЗБД\Kladr\Kladr.Services\bin\Debug\EntityFramework.xml
+W:\ОПЗБД\Kladr\Kladr.Services\obj\Debug\Kladr.Services.csprojResolveAssemblyReference.cache
+W:\ОПЗБД\Kladr\Kladr.Services\obj\Debug\Kladr.Services.dll
+W:\ОПЗБД\Kladr\Kladr.Services\obj\Debug\Kladr.Services.pdb

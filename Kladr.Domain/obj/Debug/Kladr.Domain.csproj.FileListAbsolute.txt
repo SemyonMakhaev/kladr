@@ -1,0 +1,10 @@
+W:\ОПЗБД\Kladr\Domain\bin\Debug\Domain.dll
+W:\ОПЗБД\Kladr\Domain\bin\Debug\Domain.pdb
+W:\ОПЗБД\Kladr\Domain\obj\Debug\Kladr.Domain.csprojResolveAssemblyReference.cache
+W:\ОПЗБД\Kladr\Domain\obj\Debug\Domain.dll
+W:\ОПЗБД\Kladr\Domain\obj\Debug\Domain.pdb
+W:\ОПЗБД\Kladr\Kladr.Domain\bin\Debug\Domain.dll
+W:\ОПЗБД\Kladr\Kladr.Domain\bin\Debug\Domain.pdb
+W:\ОПЗБД\Kladr\Kladr.Domain\obj\Debug\Kladr.Domain.csprojResolveAssemblyReference.cache
+W:\ОПЗБД\Kladr\Kladr.Domain\obj\Debug\Domain.dll
+W:\ОПЗБД\Kladr\Kladr.Domain\obj\Debug\Domain.pdb
