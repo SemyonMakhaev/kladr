@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using Domain;
+using Kladr.Domain;
 
 namespace Kladr.Models
 {

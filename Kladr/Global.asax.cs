@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Kladr.Domain;
 using Kladr.Core.Repositories;
 using Kladr.Core.Services;
 using Kladr.Services;
@@ -34,6 +34,7 @@ namespace Kladr
             kernel.Bind<IStreetsService>().To<StreetsService>();
             kernel.Bind<IHousesService>().To<HousesService>();
             kernel.Bind<IFlatsService>().To<FlatsService>();
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
             return kernel;
         }
     }

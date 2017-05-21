@@ -1,0 +1,39 @@
+﻿@model Kladr.Models.ApplicationUser
+@{
+    ViewBag.Title = "Письмо";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Уважаемый пользователь сервиса!</h2>
+
+<p>Отправляем вам ваши учётные данные</p>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Кому: <strong>@Model.Email</strong></div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>Регион</td>
+            <td>@Model.Region</td>
+        </tr>
+        <tr>
+            <td>Населённый пункт</td>
+            <td>@Model.Settlement</td>
+        </tr>
+        <tr>
+            <td>Улица</td>
+            <td>@Model.Street</td>
+        </tr>
+        <tr>
+            <td>Дом</td>
+            <td>@Model.House</td>
+        </tr>
+        <tr>
+            <td>Квартира</td>
+            <td>@Model.Flat</td>
+        </tr>
+        <tr>
+            <td>Индекс</td>
+            <td>@Model.Index</td>
+        </tr>
+    </table>
+</div>

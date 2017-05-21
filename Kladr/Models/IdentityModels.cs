@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Kladr.Domain;
 
 namespace Kladr.Models
 {
@@ -14,6 +15,7 @@ namespace Kladr.Models
         public string Street { get; set; }
         public string House { get; set; }
         public string Flat { get; set; }
+        public string Index { get; set; }
         
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

@@ -20,36 +20,37 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Region, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Region, new { @class = "form-control address-control" })
-            <div class="prompt region-prompt"></div>
+            <select id="Region" name="Region" class="form-control address-control" required></select>
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Settlement, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Settlement, new { @class = "form-control address-control" })
-            <div class="prompt settlement-prompt"></div>
+            <select id="Settlement" name="Settlement" class="form-control address-control" required></select>
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Street, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Street, new { @class = "form-control address-control" })
-            <div class="prompt street-prompt"></div>
+            <select id="Street" name="Street" class="form-control address-control" required></select>
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.House, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.House, new { @class = "form-control address-control" })
-            <div class="prompt house-prompt"></div>
+            @Html.TextBoxFor(m => m.House, new { @id = "house-input", @class = "form-control address-control", @required = "required" })
         </div>
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Flat, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Flat, new { @class = "form-control address-control" })
-            <div class="prompt flat-prompt"></div>
+            @Html.TextBoxFor(m => m.Flat, new { @class = "form-control address-control", @required = "required" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Index, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Index, new { @id="index", @class = "form-control address-control", @disabled = "disabled", @required = "required" })
         </div>
     </div>
     <div class="form-group">

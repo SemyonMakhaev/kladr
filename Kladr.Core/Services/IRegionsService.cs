@@ -1,9 +1,8 @@
-﻿using Domain;
+﻿using Kladr.Domain;
 
 namespace Kladr.Core.Services
 {
     public interface IRegionsService : IService<Region>
     {
-        Region GetByName(string name);
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Kladr.Core.Repositories;
-using Domain;
+using Kladr.Domain;
 
 namespace Kladr.Services
 {
@@ -41,13 +41,7 @@ namespace Kladr.Services
         {
             return _repository.GetById(id);
         }
-
-        public House GetByNumber(string number)
-        {
-            return _repository.GetAll()
-                .FirstOrDefault(house => house.Number == number);
-        }
-
+        
         public void Update(House house)
         {
             _repository.SaveOrUpdate(house);

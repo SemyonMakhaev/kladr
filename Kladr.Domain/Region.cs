@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace Domain
+﻿
+namespace Kladr.Domain
 {
     public class Region : Entity
     {
         public virtual string Name { get; set; }
-        public virtual IList<Settlement> Settlements { get; set; }
+        public virtual string Index { get; set; }
     }
 }

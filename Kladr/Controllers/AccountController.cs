@@ -35,6 +35,11 @@ namespace Kladr.Controllers
                 View(UserManager.Users.ToList()) : View("Forbidden");
         }
 
+        public ActionResult Letter(string userId)
+        {
+            return View(UserManager.Users.FirstOrDefault(user => user.Id == userId));
+        }
+
         public ApplicationSignInManager SignInManager
         {
             get
@@ -165,7 +170,8 @@ namespace Kladr.Controllers
                     Settlement = model.Settlement,
                     Street = model.Street,
                     House = model.House,
-                    Flat = model.Flat
+                    Flat = model.Flat,
+                    Index = model.Index
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

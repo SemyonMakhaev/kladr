@@ -1,7 +1,5 @@
 ﻿using Kladr.Core.Services;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace Kladr.Controllers
@@ -29,35 +27,72 @@ namespace Kladr.Controllers
 
         public JsonResult GetRegions()
         {
-            return Json(_regionsService.GetAll().Select(region => region.Name));
+            var regions = _regionsService.GetAll().Select(region => region.Name);
+            return Json(regions, JsonRequestBehavior.AllowGet);
         }
 
-        public IList<string> GetRegionSettlements(int regionId)
+        public JsonResult GetRegionSettlements(string regionName)
         {
-            return _regionsService.GetById(regionId).Settlements
+            var settlements = _settlementsService.GetAll()
+                .Where(settlement => settlement.RegionName == regionName)
                 .Select(settlement => settlement.Name)
                 .ToList();
+            return Json(settlements, JsonRequestBehavior.AllowGet);
         }
 
-        public IList<string> GetSettlementStreets(int settlementId)
+        public JsonResult GetSettlementStreets(string regionName, string settlementName)
         {
-            return _settlementsService.GetById(settlementId).Streets
+            var streets = _streetsService.GetAll()
+                .Where(street => street.SettlementName == settlementName &&
+                            street.RegionName == regionName)
                 .Select(street => street.Name)
                 .ToList();
+            return Json(streets, JsonRequestBehavior.AllowGet);
         }
 
-        public IList<string> GetStreetHouses(int streetId)
+        public string GetIndex(string houseNumber, string streetName, string settlementName, string regionName)
         {
-            return _streetsService.GetById(streetId).Houses
-                .Select(house => house.Number)
-                .ToList();
-        }
-
-        public IList<string> GetHouseFlats(int houseId)
-        {
-            return _housesService.GetById(houseId).Flats
-                .Select(flat => flat.Number)
-                .ToList();
+            var index = "";
+            if (houseNumber == "undefined")
+            {
+                if (streetName == "undefined")
+                {
+                    if (settlementName == "undefined")
+                    {
+                        if (regionName != "undefined")
+                        {
+                            var obj = _regionsService.GetAll()
+                                .FirstOrDefault(region => region.Name == regionName);
+                            if (obj != null) index = obj.Index;
+                        }
+                    }
+                    else
+                    {
+                        var obj = _settlementsService.GetAll()
+                            .FirstOrDefault(settlement => settlement.Name == settlementName &&
+                                        settlement.RegionName == regionName);
+                        if (obj != null) index = obj.Index;
+                    }
+                }
+                else
+                {
+                    var obj = _streetsService.GetAll()
+                        .FirstOrDefault(street => street.Name == streetName &&
+                                    street.SettlementName == settlementName &&
+                                    street.RegionName == regionName);
+                    if (obj != null) index = obj.Index;
+                }
+            }
+            else
+            {
+                var obj = _housesService.GetAll()
+                    .FirstOrDefault(house => house.Number == houseNumber &&
+                            house.StreetName == streetName &&
+                            house.SettlementName == settlementName &&
+                            house.RegionName == regionName);
+                if (obj != null) index = obj.Index;
+            }
+            return index;
         }
     }
 }

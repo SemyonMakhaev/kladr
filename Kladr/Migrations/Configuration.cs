@@ -10,7 +10,6 @@ namespace Kladr.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Kladr.Models.ApplicationDbContext";
         }
 
         protected override void Seed(Kladr.Models.ApplicationDbContext context)

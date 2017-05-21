@@ -90,7 +90,8 @@ W:\ОПЗБД\Kladr\Kladr\bin\Kladr.Core.pdb
 W:\ОПЗБД\Kladr\Kladr\bin\Kladr.Services.pdb
 W:\ОПЗБД\Kladr\Kladr\bin\Ninject.xml
 W:\ОПЗБД\Kladr\Kladr\bin\Ninject.Web.Common.xml
-W:\ОПЗБД\Kladr\Kladr\obj\Debug\Kladr.Migrations.InitialCreate.resources
-W:\ОПЗБД\Kladr\Kladr\obj\Debug\Kladr.csproj.GenerateResource.Cache
-W:\ОПЗБД\Kladr\Kladr\obj\Debug\Kladr.Migrations.AddedUserAddress.resources
-W:\ОПЗБД\Kladr\Kladr\obj\Debug\Kladr.Migrations.StringUserFields.resources
+W:\ОПЗБД\kladr\Kladr\obj\Debug\Kladr.Migrations.EntitiesFields.resources
+W:\ОПЗБД\kladr\Kladr\obj\Debug\Kladr.csproj.GenerateResource.Cache
+W:\ОПЗБД\kladr\Kladr\obj\Debug\Kladr.Migrations.StringFieldsNames.resources
+W:\ОПЗБД\kladr\Kladr\obj\Debug\Kladr.Migrations.FullAddressFieldSets.resources
+W:\ОПЗБД\kladr\Kladr\obj\Debug\Kladr.Migrations.UserIndexField.resources

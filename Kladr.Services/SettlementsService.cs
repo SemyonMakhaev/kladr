@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Kladr.Domain;
 using Kladr.Core.Repositories;
 using Kladr.Core.Services;
 using System.Collections.Generic;
@@ -40,12 +40,6 @@ namespace Kladr.Services
         public Settlement GetById(int id)
         {
             return _repository.GetById(id);
-        }
-
-        public Settlement GetByName(string name)
-        {
-            return _repository.GetAll()
-                .FirstOrDefault(settlement => settlement.Name == name);
         }
 
         public void Update(Settlement settlement)

@@ -1,4 +1,4 @@
-﻿using Domain;
+﻿using Kladr.Domain;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -95,6 +95,9 @@ namespace Kladr.Models
 
         [Display(Name = "Квартира")]
         public string Flat { get; set; }
+
+        [Display(Name = "Индекс")]
+        public string Index { get; set; }
     }
 
     public class ResetPasswordViewModel

@@ -1,94 +1,142 @@
-﻿document.addEventListener('load', function () {
-    var regions = [];
-    var settlements = [];
-    var streets = [];
-    var houses = [];
-    var flats = [];
+﻿'use strict';
 
-    loadRegions();
-
-    function loadRegions() {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/Address/GetRegions');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState !== 4 || xhr.status !== 200) {
-                return;
+function requestRegions() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/Address/GetRegions');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4 || xhr.status !== 200) {
+            return;
+        }
+        var regionsSelect = document.getElementById('Region');
+        var documentFragment = document.createDocumentFragment();
+        JSON.parse(xhr.responseText).forEach(function (regionName) {
+            var option = Object.assign(document.createElement('option'), {
+                innerText: regionName,
+                value: regionName
+            });
+            if (regionName === defaultValues.regionName) {
+                option.selected = 'true';
             }
-            regions = JSON.parse(xhr.responseText);
-        }
-    }
-
-    // load settlements, streets, houses, flats
-
-    window.onkeydown = function (event) {
-        switch (event.keyCode) {
-            case 27:
-                event.preventDefault();
-                hidePrompt();
-                break;
-        }
+            documentFragment.appendChild(option);
+        });
+        regionsSelect.appendChild(documentFragment);
     };
+    xhr.send();
+}
 
-    window.onmousedown = function (event) {
-
-    };
-
-    $("#Region").keyup(function (event) {
-        if (event.keyCode !== 27 && event.keyCode !== 13) {
-            var selected = limit(select(regions, this.value));
-            var prompt = document.getElementsByClassName("region-prompt")[0];
-            putItemsInPrompt(selected, prompt);
-            prompt.style.visibility = 'visible';
+function requestSettlements(regionName, defaultValue) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/Address/GetRegionSettlements?regionName=' + regionName);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4 || xhr.status !== 200) {
+            return;
         }
+        var settlementsSelect = document.getElementById('Settlement');
+        var documentFragment = document.createDocumentFragment();
+        JSON.parse(xhr.responseText).forEach(function (settlementName) {
+            var settlement = Object.assign(document.createElement('option'), {
+                innerText: settlementName,
+                value: settlementName
+            });
+            if (settlement.value === defaultValue) {
+                settlement.selected = 'true';
+            }
+            documentFragment.appendChild(settlement);
+        });
+        settlementsSelect.appendChild(documentFragment);
+    };
+    xhr.send();
+}
+
+function requestStreets(settlementName, regionName, defaultValue) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/Address/GetSettlementStreets?regionName=' + regionName + '&settlementName=' + settlementName);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4 || xhr.status !== 200) {
+            return;
+        }
+        var streetsSelect = document.getElementById('Street');
+        var documentFragment = document.createDocumentFragment();
+        JSON.parse(xhr.responseText).forEach(function (streetName) {
+            var street = Object.assign(document.createElement('option'), {
+                innerText: streetName,
+                value: streetName
+            });
+            if (street.value === defaultValue) {
+                street.selected = 'true';
+            }
+            documentFragment.appendChild(street);
+        });
+        streetsSelect.appendChild(documentFragment);
+    };
+    xhr.send();
+}
+
+function requestIndex(regionName, settlementName, streetName, houseNumber) {
+    var idx = document.getElementById('index');
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/Address/GetIndex?regionName=' + regionName + '&settlementName=' + settlementName +
+            '&streetName=' + streetName + '&houseNumber=' + houseNumber);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState !== 4 || xhr.status !== 200) {
+            return;
+        }
+        idx.value = xhr.responseText || '';
+    };
+    xhr.send();
+}
+
+var defaultValues = {
+    regionName: 'Свердловская обл',
+    settlementName: 'Екатеринбург',
+    streetName: 'ул Антона Валека'
+};
+
+addEventListener('load', function () {
+    var regionsSelect = document.getElementById('Region');
+    var settlementsSelect = document.getElementById('Settlement');
+    var streetsSelect = document.getElementById('Street');
+    var houseInput = document.getElementById('house-input');
+    var index = document.getElementById('index');
+
+    requestRegions(defaultValues.regionName);
+    requestSettlements(defaultValues.regionName, defaultValues.settlementName);
+    requestStreets(defaultValues.settlementName, defaultValues.regionName, defaultValues.streetName);
+    requestIndex(defaultValues.regionName, defaultValues.settlementName, defaultValues.streetName);
+
+    houseInput.addEventListener('change', function () {
+        index.value = '';
+        requestIndex(regionsSelect.value, settlementsSelect.value, streetsSelect.value, this.value);
     });
 
-    $("#Region").blur(function() {
-        hidePrompt();
+    streetsSelect.addEventListener('change', function () {
+        houseInput.value = '';
+        index.value = '';
+        requestIndex(regionsSelect.value, settlementsSelect.value, this.value);
     });
 
-    $(".address-control").focus(function () {
-        document.getElementById(this.id.toLowerCase() + '-prompt').style.visibility = "visible";
+    settlementsSelect.addEventListener('change', function () {
+        [].slice.call(streetsSelect.children).forEach(function (option) {
+            streetsSelect.removeChild(option);
+        });
+        houseInput.value = '';
+        index.value = '';
+        requestStreets(this.value, regionsSelect.value);
+        requestIndex(regionsSelect.value, this.value);
+        streetsSelect.removeAttribute('disabled');
+    });
+
+    regionsSelect.addEventListener('change', function () {
+        [].slice.call(settlementsSelect.children).forEach(function (option) {
+            settlementsSelect.removeChild(option);
+        });
+        [].slice.call(streetsSelect.children).forEach(function (option) {
+            streetsSelect.removeChild(option);
+        });
+        houseInput.value = '';
+        index.value = '';
+        requestSettlements(this.value);
+        requestIndex(this.value);
+        streetsSelect.disabled = 'disabled';
     });
 });
-
-function select(arr, substring) {
-    var entry = substring.toLowerCase();
-    return arr.reduce(function (current, item) {
-        if (item.toLowerCase().split(' ').some(function (word) {
-            return word.startsWith(entry);
-        })) {
-            current.push(item);
-        }
-        return current;
-    }, []);
-}
-
-function limit(arr, count) {
-    count = count || 5;
-    return arr.slice(0, count);
-}
-
-function putItemsInPrompt(arr, prompt) {
-    while (prompt.hasChildNodes()) {
-        prompt.removeChild(prompt.lastChild);
-    }
-    if (arr.length === 0) {
-        var notFound = document.createElement('p');
-        notFound.appendChild(document.createTextNode('Не найдено'));
-        prompt.appendChild(notFound);
-    } else {
-        var fragment = document.createDocumentFragment();
-        arr.forEach(function (item) {
-            var cell = document.createElement('p');
-            cell.appendChild(document.createTextNode(item));
-            fragment.appendChild(cell);
-        });
-        prompt.appendChild(fragment);
-    }
-}
-
-function hidePrompt() {
-    [].slice.call(document.getElementsByClassName("prompt")).forEach(function (prompt) {
-        prompt.style.visibility = "hidden";
-    });
-}

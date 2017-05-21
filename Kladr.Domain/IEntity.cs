@@ -1,5 +1,5 @@
 ﻿
-namespace Domain
+namespace Kladr.Domain
 {
     public interface IEntity
     {

@@ -210,17 +210,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703271334172_InitialCreate.cs" />
-    <Compile Include="Migrations\201703271334172_InitialCreate.Designer.cs">
-      <DependentUpon>201703271334172_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201705201942357_EntitiesFields.cs" />
+    <Compile Include="Migrations\201705201942357_EntitiesFields.Designer.cs">
+      <DependentUpon>201705201942357_EntitiesFields.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201704240801239_AddedUserAddress.cs" />
-    <Compile Include="Migrations\201704240801239_AddedUserAddress.Designer.cs">
-      <DependentUpon>201704240801239_AddedUserAddress.cs</DependentUpon>
+    <Compile Include="Migrations\201705201951454_StringFieldsNames.cs" />
+    <Compile Include="Migrations\201705201951454_StringFieldsNames.Designer.cs">
+      <DependentUpon>201705201951454_StringFieldsNames.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705071944316_StringUserFields.cs" />
-    <Compile Include="Migrations\201705071944316_StringUserFields.Designer.cs">
-      <DependentUpon>201705071944316_StringUserFields.cs</DependentUpon>
+    <Compile Include="Migrations\201705202124229_FullAddressFieldSets.cs" />
+    <Compile Include="Migrations\201705202124229_FullAddressFieldSets.Designer.cs">
+      <DependentUpon>201705202124229_FullAddressFieldSets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705202155419_UserIndexField.cs" />
+    <Compile Include="Migrations\201705202155419_UserIndexField.Designer.cs">
+      <DependentUpon>201705202155419_UserIndexField.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -291,6 +295,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Statistics.cshtml" />
     <Content Include="Views\Shared\Forbidden.cshtml" />
+    <Content Include="Views\Account\Letter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,14 +324,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703271334172_InitialCreate.resx">
-      <DependentUpon>201703271334172_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705201942357_EntitiesFields.resx">
+      <DependentUpon>201705201942357_EntitiesFields.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201704240801239_AddedUserAddress.resx">
-      <DependentUpon>201704240801239_AddedUserAddress.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705201951454_StringFieldsNames.resx">
+      <DependentUpon>201705201951454_StringFieldsNames.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705071944316_StringUserFields.resx">
-      <DependentUpon>201705071944316_StringUserFields.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705202124229_FullAddressFieldSets.resx">
+      <DependentUpon>201705202124229_FullAddressFieldSets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705202155419_UserIndexField.resx">
+      <DependentUpon>201705202155419_UserIndexField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Domain;
+using Kladr.Domain;
 
 namespace Kladr.Core.Services
 {

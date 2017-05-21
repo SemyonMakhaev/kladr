@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace ConspectoPatronum
+namespace Kladr
 {
     public class NinjectDependencyResolver : IDependencyResolver
     {

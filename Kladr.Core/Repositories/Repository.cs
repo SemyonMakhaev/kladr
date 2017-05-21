@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System;
 using System.Data.Entity;
-using Domain;
+using Kladr.Domain;
 
 namespace Kladr.Core.Repositories
 {

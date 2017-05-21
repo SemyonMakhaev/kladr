@@ -8,3 +8,8 @@ W:\ОПЗБД\Kladr\Kladr.Domain\bin\Debug\Domain.pdb
 W:\ОПЗБД\Kladr\Kladr.Domain\obj\Debug\Kladr.Domain.csprojResolveAssemblyReference.cache
 W:\ОПЗБД\Kladr\Kladr.Domain\obj\Debug\Domain.dll
 W:\ОПЗБД\Kladr\Kladr.Domain\obj\Debug\Domain.pdb
+W:\ОПЗБД\kladr\Kladr.Domain\bin\Debug\Domain.dll.config
+W:\ОПЗБД\kladr\Kladr.Domain\bin\Debug\EntityFramework.dll
+W:\ОПЗБД\kladr\Kladr.Domain\bin\Debug\EntityFramework.SqlServer.dll
+W:\ОПЗБД\kladr\Kladr.Domain\bin\Debug\EntityFramework.xml
+W:\ОПЗБД\kladr\Kladr.Domain\bin\Debug\EntityFramework.SqlServer.xml

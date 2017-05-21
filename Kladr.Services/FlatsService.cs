@@ -2,7 +2,7 @@
 using Kladr.Core.Repositories;
 using System.Collections.Generic;
 using System.Linq;
-using Domain;
+using Kladr.Domain;
 
 namespace Kladr.Services
 {
@@ -40,12 +40,6 @@ namespace Kladr.Services
         public Flat GetById(int id)
         {
             return _repository.GetById(id);
-        }
-
-        public Flat GetByNumber(string number)
-        {
-            return _repository.GetAll()
-                .FirstOrDefault(flat => flat.Number == number);
         }
 
         public void Update(Flat flat)

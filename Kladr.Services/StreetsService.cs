@@ -1,7 +1,7 @@
 ﻿using Kladr.Core.Services;
 using System.Collections.Generic;
 using System.Linq;
-using Domain;
+using Kladr.Domain;
 using Kladr.Core.Repositories;
 
 namespace Kladr.Services
@@ -40,12 +40,6 @@ namespace Kladr.Services
         public Street GetById(int id)
         {
             return _repository.GetById(id);
-        }
-
-        public Street GetByName(string name)
-        {
-            return _repository.GetAll()
-                .FirstOrDefault(street => street.Name == name);
         }
 
         public void Update(Street street)
