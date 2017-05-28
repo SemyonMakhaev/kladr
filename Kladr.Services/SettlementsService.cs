@@ -1,7 +1,6 @@
 ﻿using Kladr.Domain;
 using Kladr.Core.Repositories;
 using Kladr.Core.Services;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Kladr.Services
@@ -30,11 +29,10 @@ namespace Kladr.Services
             _repository.Delete(id);
         }
 
-        public IList<Settlement> GetAll()
+        public IQueryable<Settlement> GetAll()
         {
             return _repository.GetAll()
-                .OrderBy(settlement => settlement.Name)
-                .ToList();
+                .OrderBy(settlement => settlement.Name);
         }
 
         public Settlement GetById(int id)

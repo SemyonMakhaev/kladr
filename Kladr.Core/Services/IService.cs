@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Kladr.Domain;
+﻿using Kladr.Domain;
+using System.Linq;
 
 namespace Kladr.Core.Services
 {
@@ -8,7 +8,7 @@ namespace Kladr.Core.Services
         void Add(T entity);
         void Delete(int id);
         int Count();
-        IList<T> GetAll();
+        IQueryable<T> GetAll();
         T GetById(int id);
         void Update(T entity);
     }

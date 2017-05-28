@@ -1,6 +1,5 @@
 ﻿using Kladr.Core.Services;
 using Kladr.Core.Repositories;
-using System.Collections.Generic;
 using System.Linq;
 using Kladr.Domain;
 
@@ -30,11 +29,10 @@ namespace Kladr.Services
             _repository.Delete(id);
         }
 
-        public IList<Flat> GetAll()
+        public IQueryable<Flat> GetAll()
         {
             return _repository.GetAll()
-                .OrderBy(flat => flat.Number)
-                .ToList();
+                .OrderBy(flat => flat.Number);
         }
 
         public Flat GetById(int id)

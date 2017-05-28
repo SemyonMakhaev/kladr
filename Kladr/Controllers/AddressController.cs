@@ -52,7 +52,7 @@ namespace Kladr.Controllers
 
         public string GetIndex(string houseNumber, string streetName, string settlementName, string regionName)
         {
-            var index = "";
+            var index = "?";
             if (houseNumber == "undefined")
             {
                 if (streetName == "undefined")

@@ -7,8 +7,27 @@
 
 @if (Model.Count > 0)
 {
+    <p>Выберите пользователей, чтобы сформировать для них письмо</p>
+    using (Html.BeginForm("Letter", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <select class="col-md-10" multiple name="SelectedUsersEmails[]" size="8">
+                @foreach (var user in Model)
+                {
+                    <option value="@user.Email">@user.Email</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" class="btn btn-default" value="Сформировать письмо" />
+            </div>
+        </div>
+    }
+    <hr />
     <div class="panel panel-default">
-        <div class="panel-heading">Пользователи сервиса</div>
+        <div class="panel-heading">Все пользователи сервиса</div>
         <table class="table table-hover table-bordered">
             <thead>
                 <tr>
@@ -19,7 +38,6 @@
                     <th>Дом</th>
                     <th>Квартира</th>
                     <th>Индекс</th>
-                    <th>Сформировать письмо</th>
                 </tr>
             </thead>
             <tbody>
@@ -87,15 +105,11 @@
                                 <p>?</p>
                             }
                         </td>
-                        <td>
-                            <a href="/Account/Letter?userId=@user.Id">[Письмо]</a>
-                        </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-
 }
 else
 {

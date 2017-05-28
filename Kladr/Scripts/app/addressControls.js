@@ -81,14 +81,14 @@ function requestIndex(regionName, settlementName, streetName, houseNumber) {
         if (xhr.readyState !== 4 || xhr.status !== 200) {
             return;
         }
-        idx.value = xhr.responseText || '';
+        idx.value = xhr.responseText || '?';
     };
     xhr.send();
 }
 
 var defaultValues = {
     regionName: 'Свердловская обл',
-    settlementName: 'Екатеринбург',
+    settlementName: 'Екатеринбург Свердловская',
     streetName: 'ул Антона Валека'
 };
 

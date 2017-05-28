@@ -1,39 +1,96 @@
-﻿@model Kladr.Models.ApplicationUser
+﻿@model IList<Kladr.Models.ApplicationUser>
 @{
     ViewBag.Title = "Письмо";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Уважаемый пользователь сервиса!</h2>
-
-<p>Отправляем вам ваши учётные данные</p>
+<h2>Уважаемые пользователи сервиса!</h2>
 
 <div class="panel panel-default">
-    <div class="panel-heading">Кому: <strong>@Model.Email</strong></div>
-    <table class="table table-bordered table-hover">
-        <tr>
-            <td>Регион</td>
-            <td>@Model.Region</td>
-        </tr>
-        <tr>
-            <td>Населённый пункт</td>
-            <td>@Model.Settlement</td>
-        </tr>
-        <tr>
-            <td>Улица</td>
-            <td>@Model.Street</td>
-        </tr>
-        <tr>
-            <td>Дом</td>
-            <td>@Model.House</td>
-        </tr>
-        <tr>
-            <td>Квартира</td>
-            <td>@Model.Flat</td>
-        </tr>
-        <tr>
-            <td>Индекс</td>
-            <td>@Model.Index</td>
-        </tr>
+    <div class="panel-heading">Отправляем вам ваши учётные данные</div>
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Регион</th>
+                <th>Нас. пункт</th>
+                <th>Улица</th>
+                <th>Дом</th>
+                <th>Квартира</th>
+                <th>Индекс</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>
+                        @if (user.Region != null)
+                        {
+                            @user.Region
+                        }
+                        else
+                        {
+                            <p>?</p>
+                        }
+                    </td>
+                    <td>
+                        @if (user.Settlement != null)
+                        {
+                            @user.Settlement
+                        }
+                        else
+                        {
+                            <p>?</p>
+                        }
+                    </td>
+                    <td>
+                        @if (user.Street != null)
+                        {
+                            @user.Street
+                        }
+                        else
+                        {
+                            <p>?</p>
+                        }
+                    </td>
+                    <td>
+                        @if (user.House != null)
+                        {
+                            @user.House
+                        }
+                        else
+                        {
+                            <p>?</p>
+                        }
+                    </td>
+                    <td>
+                        @if (user.Flat != null)
+                        {
+                            @user.Flat
+                        }
+                        else
+                        {
+                            <p>?</p>
+                        }
+                    </td>
+                    <td>
+                        @if (user.Index != null)
+                        {
+                            @user.Index
+                        }
+                        else
+                        {
+                            <p>?</p>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
+<div class="btn-group">
+    <button class="btn btn-default" onclick="print()">Печать</button>
+</div>
+

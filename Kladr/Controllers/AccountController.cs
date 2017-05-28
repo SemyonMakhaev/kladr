@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Kladr.Models;
+using System.Collections.Generic;
 
 namespace Kladr.Controllers
 {
@@ -35,9 +36,15 @@ namespace Kladr.Controllers
                 View(UserManager.Users.ToList()) : View("Forbidden");
         }
 
-        public ActionResult Letter(string userId)
+        [HttpPost]
+        public ActionResult Letter(string[] SelectedUsersEmails)
         {
-            return View(UserManager.Users.FirstOrDefault(user => user.Id == userId));
+            var users = UserManager
+                .Users
+                .ToList();
+            return View(users
+                .Where(user => SelectedUsersEmails != null && SelectedUsersEmails.Contains(user.Email))
+                .ToList());
         }
 
         public ApplicationSignInManager SignInManager
